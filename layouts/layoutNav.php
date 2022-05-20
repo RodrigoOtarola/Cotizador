@@ -23,11 +23,11 @@
 <div class="navbar-fixed">
     <nav class="nav-wrapper orange lighten-5">
         <div class="container">
-            <a href="#" class="brand-logo black-text">Cotizador!!!!!!!!</a>
+            <a href="#" class="brand-logo black-text">Cotizador</a>
             <a href="#" data-target="menu-responsive" class="sidenav-trigger"><i class="material-icons black-text">menu</i></a>
             <ul class="right hide-on-med-and-down ">
                 <!--clase hide-on-med-and-down es para desaparecer menu en responsive-->
-                <li><a href="insert.php" class="black-text">Ingresar</a></li>
+                <li><a href="form.php" class="black-text">Ingresar</a></li>
                 <li><a href="#" class="black-text">Sección 2</a></li>
                 <li><a href="#" class="black-text">Sección 3</a></li>
                 <li><a href="#" class="dropdown-trigger black-text" data-target="id_drop">Desplegable<i
@@ -50,7 +50,7 @@
 </ul>
 <!--Si pasamos a responsive se agrupa menu-->
 <ul class="sidenav" id="menu-responsive"><!--id tiene que tener el mismo nombre del data target-->
-    <li><a href="insert.php" class="black-text">Ingresar</a></li>
+    <li><a href="form.php" class="black-text">Ingresar</a></li>
     <li><a href="#" class="black-text">Sección 2</a></li>
     <li><a href="#" class="black-text">Sección 3</a></li>
     <!--<li><a href="#" class="dropdown-trigger" data-target="id_drop">Desplegable<i
