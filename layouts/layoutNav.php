@@ -23,7 +23,7 @@
 <div class="navbar-fixed">
     <nav class="nav-wrapper orange lighten-5">
         <div class="container">
-            <a href="#" class="brand-logo black-text">Cotizador</a>
+            <a href="#" class="brand-logo black-text">Cotizador!!!!!!!!</a>
             <a href="#" data-target="menu-responsive" class="sidenav-trigger"><i class="material-icons black-text">menu</i></a>
             <ul class="right hide-on-med-and-down ">
                 <!--clase hide-on-med-and-down es para desaparecer menu en responsive-->
