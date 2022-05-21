@@ -6,10 +6,6 @@ include('layouts/layoutNav.php');
 $Tipo_producto=$base->query("SELECT * FROM tipo_producto")->fetchAll(PDO::FETCH_OBJ);
 $Impto_adicional=$base->query("SELECT * FROM impuesto WHERE id IN (1,2,3,4)")->fetchAll(PDO::FETCH_OBJ);
 
-if(!isset($_POST['edit'])){
-    $nombre=$_GET['nom'];
-}
-
 
 ?>
 <form action="insert.php" method="POST" autocomplete="off">
