@@ -37,7 +37,9 @@ ORDER BY (rg.id) DESC")->fetchAll(PDO::FETCH_OBJ);
                 <td><?php echo $listado->ad_valorem ?></td>
                 <td><?php echo $listado->iva ?></td>
                 <td><?php echo $listado->valor_bruto ?></td>
-                <td><a href="update.php?id<?php echo $listado->id?>"><i class="material-icons blue-text">edit</i></a>
+                <td>
+                    <button name="edit"><a href="update.php?id<?php echo $listado->id?> & nom<?php echo $listado->nombre?> & po<?php echo $listado->precio_origen?> & vf<?php echo $listado->valor_flete?>">
+                        <i class="material-icons blue-text">edit</i></a></button>
                     <a href=""><i class="material-icons red-text">delete</i></a></td>
             </tr>
             <?php endforeach;?>
