@@ -17,14 +17,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!--Google Icon-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 </head>
 <body>
 <div class="navbar-fixed">
     <nav class="nav-wrapper orange lighten-5">
         <div class="container">
             <a href="#" class="brand-logo black-text">Cotizador</a>
-            <a href="#" data-target="menu-responsive" class="sidenav-trigger"><i class="material-icons black-text">menu</i></a>
+            <a href="#" data-target="menu-responsive" class="sidenav-trigger"><i
+                        class="material-icons black-text">menu</i></a>
             <ul class="right hide-on-med-and-down ">
                 <!--clase hide-on-med-and-down es para desaparecer menu en responsive-->
                 <li><a href="form.php" class="black-text">Ingresar</a></li>
@@ -73,6 +73,12 @@
         </div>
     </div>
 </footer>
-
 </body>
+<script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript" src="js/app.js"></script>
+
 </html>

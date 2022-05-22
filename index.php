@@ -41,9 +41,9 @@ ORDER BY (rg.id) DESC")->fetchAll(PDO::FETCH_OBJ);
                 <td><?php echo $listado->iva ?></td>
                 <td><?php echo $listado->valor_bruto ?></td>
                 <td>
-                    <a href="edit.php?id=<?php echo $listado->id ?>">
-                        <i class="material-icons blue-text">edit</i>
-                    <a href="delete.php?id=<?php echo $listado->id ?>"><i class="material-icons red-text">delete</i></a></td>
+                    <button><a href="edit.php?id=<?php echo $listado->id ?>" >
+                        <i class="material-icons blue-text">edit</i></button>
+                        <button><a href="delete.php?id=<?php echo $listado->id ?>" id="eliminar" onclick="eliminar()"><i class="material-icons red-text">delete</i></a></button</td>
             </tr>
             <?php endforeach;?>
             </tbody>
