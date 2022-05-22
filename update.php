@@ -1,0 +1,20 @@
+<?php
+include('conexion.php');
+
+$id = $_POST['id'];
+$nombre = $_POST['nombre'];
+$t_producto = $_POST['tipo_producto'];
+$p_origen = $_POST['p_origen'];
+$v_flete = $_POST['v_flete'];
+$v_seguro = $_POST['v_seguro'];
+$i_adicional = $_POST['impto_adicional'];
+$obs = $_POST['observaciones'];
+
+$update ="UPDATE registro_producto SET nombre=:nom, id_Tproducto_FK=:t_prod, precio_origen=:p_origen, valor_flete=:v_flete, valor_seguro=:v_seguro, id_impto_adicionalFK=:i_adicional, observaciones=:obs
+WHERE id = '$id'";
+
+$resultado = $base->prepare($update);
+
+$resultado->execute(array(":nom" => $nombre, ":t_prod" => $t_producto, ":p_origen" => $p_origen, ":v_flete" => $v_flete, ":v_seguro" => $v_seguro, ":i_adicional" => $i_adicional, ":obs" => $obs));
+
+header("Location:index.php");
