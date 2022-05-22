@@ -3,8 +3,9 @@
 
 include('conexion.php');
 
-$registros=$base->query("SELECT rg.id, rg.nombre, tp.Tipo_producto, rg.precio_origen, rg.valor_flete, rg.valor_seguro, rg.ad_valorem, rg.iva, rg.valor_bruto
-FROM registro_producto AS rg JOIN tipo_producto AS tp ON(tp.id=rg.id_Tproducto_FK) JOIN impuesto as imp ON(imp.id=rg.id_impto_adicionalFK)
+$registros=$base->query("SELECT rg.id, rg.nombre, tp.Tipo_producto, rg.precio_origen, rg.valor_flete, rg.valor_seguro, rg.ad_valorem,imp.valor, rg.iva,imp.valor, rg.valor_bruto
+FROM registro_producto AS rg INNER JOIN tipo_producto AS tp ON(tp.id=rg.id_Tproducto_FK) 
+INNER JOIN impuesto as imp ON(imp.id=rg.id_impto_adicionalFK) WHERE rg.estado = 1
 ORDER BY (rg.id) DESC")->fetchAll(PDO::FETCH_OBJ);
 
 ?>
@@ -21,6 +22,7 @@ ORDER BY (rg.id) DESC")->fetchAll(PDO::FETCH_OBJ);
                 <th>Flete</th>
                 <th>Seguro</th>
                 <th>Ad valorem</th>
+                <th>I. Adicional</th>
                 <th>I.V.A.</th>
                 <th>Total</th>
                 <th>Acciones</th>
@@ -35,12 +37,13 @@ ORDER BY (rg.id) DESC")->fetchAll(PDO::FETCH_OBJ);
                 <td><?php echo $listado->valor_flete ?></td>
                 <td><?php echo $listado->valor_seguro ?></td>
                 <td><?php echo $listado->ad_valorem ?></td>
+                <td><?php echo $listado->valor ?></td>
                 <td><?php echo $listado->iva ?></td>
                 <td><?php echo $listado->valor_bruto ?></td>
                 <td>
-                    <button name="edit"><a href="update.php?id<?php echo $listado->id?> & nom<?php echo $listado->nombre?> & po<?php echo $listado->precio_origen?> & vf<?php echo $listado->valor_flete?>">
-                        <i class="material-icons blue-text">edit</i></a></button>
-                    <a href=""><i class="material-icons red-text">delete</i></a></td>
+                    <a href="edit.php?id<?php echo $listado->id?> & nom<?php echo $listado->nombre?> & po<?php echo $listado->precio_origen?> & vf<?php echo $listado->valor_flete?>">
+                        <i class="material-icons blue-text">edit</i>
+                    <a href="delete.php?id=<?php echo $listado->id ?>"><i class="material-icons red-text">delete</i></a></td>
             </tr>
             <?php endforeach;?>
             </tbody>
