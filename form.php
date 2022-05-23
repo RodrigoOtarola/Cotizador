@@ -15,7 +15,7 @@ $Impto_adicional=$base->query("SELECT * FROM impuesto WHERE id IN (1,2,3,4)")->f
                 <label for="name">Nombre:</label>
             </div>
             <div class="input-field col s12 m6 l6">
-                <select name="tipo_producto" id="tipo_producto">
+                <select name="tipo_producto" id="tipo_producto" required>
                     <option value="">Seleccione</option>
                     <?php foreach ($Tipo_producto as $tipo_producto): ?>
                         <option value="<?php echo $tipo_producto->id ?>"><?php echo $tipo_producto->Tipo_producto ?></option>
@@ -36,7 +36,7 @@ $Impto_adicional=$base->query("SELECT * FROM impuesto WHERE id IN (1,2,3,4)")->f
                 <label for="v_seguro">Valor seguro:</label>
             </div>
             <div class="input-field col s12 m3 l3">
-                <select name="impto_adicional" id="impto_adicional">
+                <select name="impto_adicional" id="impto_adicional" required>
                     <option value="">Seleccione</option>
                     <?php foreach ($Impto_adicional as $impto_adicional): ?>
                         <option value="<?php echo $impto_adicional->id ?>"><?php echo $impto_adicional->impto ?></option>

@@ -5,6 +5,7 @@ include('layouts/layoutNav.php');
 
 $Tipo_producto = $base->query("SELECT * FROM tipo_producto")->fetchAll(PDO::FETCH_OBJ);
 
+
 $Impto_adicional = $base->query("SELECT * FROM impuesto WHERE id IN (1,2,3,4)")->fetchAll(PDO::FETCH_OBJ);
 
 $id = $_GET['id'];
@@ -27,11 +28,10 @@ INNER JOIN impuesto as imp ON(imp.id=rg.id_impto_adicionalFK) WHERE rg.estado = 
                 <label for="name">Nombre:</label>
             </div>
             <div class="input-field col s12 m6 l6">
-                <select name="tipo_producto" id="tipo_producto">
+                <select name="tipo_producto" id="tipo_producto" required>
                     <option value="">Seleccione</option>
                     <?php foreach ($Tipo_producto as $tipo_producto): ?>
-                        <option value="<?php echo $tipo_producto->id ?>"
-                                selected="<?php $listado->Tipo_producto ?>"><?php echo $tipo_producto->Tipo_producto ?></option>
+                        <option value="<?php echo $tipo_producto->id ?>"><?php echo $tipo_producto->Tipo_producto ?></option>
                     <?php endforeach; ?>
                 </select>
                 <label>Tipo de Producto:</label>
@@ -54,7 +54,7 @@ INNER JOIN impuesto as imp ON(imp.id=rg.id_impto_adicionalFK) WHERE rg.estado = 
                 </div>
             <?php endforeach; ?>
             <div class="input-field col s12 m3 l3">
-                <select name="impto_adicional" id="impto_adicional">
+                <select name="impto_adicional" id="impto_adicional" required>
                     <option value="">Seleccione</option>
                     <?php foreach ($Impto_adicional as $impto_adicional): ?>
                         <option value="<?php echo $impto_adicional->id ?>"><?php echo $impto_adicional->impto ?></option>
