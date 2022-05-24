@@ -36,6 +36,10 @@ $Impto_adicional=$base->query("SELECT * FROM impuesto WHERE id IN (1,2,3,4)")->f
                 <label for="v_seguro">Valor seguro:</label>
             </div>
             <div class="input-field col s12 m3 l3">
+                <input type="number" id="v_advalorem" name="v_advalorem" class="validate" required>
+                <label for="v_advalorem">Ad valorem:</label>
+            </div>
+            <div class="input-field col s12 m4 l4">
                 <select name="impto_adicional" id="impto_adicional" required>
                     <option value="">Seleccione</option>
                     <?php foreach ($Impto_adicional as $impto_adicional): ?>
@@ -43,6 +47,18 @@ $Impto_adicional=$base->query("SELECT * FROM impuesto WHERE id IN (1,2,3,4)")->f
                     <?php endforeach; ?>
                 </select>
                 <label>Impuesto Adicional:</label>
+            </div>
+            <div class="input-field col s12 m4 l4">
+                <input type="number" id="v_iadicional" name="v_iadicional" class="validate" required>
+                <label for="v_iadicional">Valor impuesto adicional:</label>
+            </div>
+            <div class="input-field col s12 m4 l4">
+                <input type="number" id="iva" name="iva" class="validate" required>
+                <label for="iva">I.V.A.:</label>
+            </div>
+            <div class="input-field col s12 m4 l4">
+                <input type="number" id="v_total" name="v_total" class="validate" required>
+                <label for="v_total">Valor total:</label>
             </div>
             <div class="input-field col s12 m12">
                 <textarea id="textarea" name="observaciones" class="materialize-textarea"></textarea>

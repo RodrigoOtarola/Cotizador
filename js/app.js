@@ -1,21 +1,21 @@
-(function() {
-    $("tr td #eliminar").submit(function(ev) {
-        ev.preventDefault();
+$(document).ready(function () {
+    $("tr td #eliminar").click(function (ev) {
+        ev.preventDefault()
         Swal.fire({
-            title: '¿Seguro que quiere eliminar?',
-            text: 'El registro se mantendra en la base de datos',
+            title: '¿Seguro quieres eliminaar?',
+            text: "Si desea eliminar, el registro se mantendra en la base de datos.",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Eliminar',
-            cancelButtonText: 'Cancelar'
+            confirmButtonText: 'Si, eliminar'
         }).then((result) => {
-            if (result.isConfirmed) {
+            if (result.value) {
+                //ajax
 
                 Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
+                    'Eliminado',
+                    'Registro eliminado con exito',
                     'success'
                 )
             }

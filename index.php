@@ -3,11 +3,18 @@
 
 include('conexion.php');
 
-$registros = $base->query("SELECT rg.id, rg.nombre, tp.Tipo_producto, rg.precio_origen, rg.valor_flete, rg.valor_seguro, rg.ad_valorem,imp.valor, rg.iva,imp.valor, rg.valor_bruto
+$registros = $base->query("SELECT rg.id, rg.nombre, tp.Tipo_producto, rg.precio_origen, rg.valor_flete, rg.valor_seguro, rg.ad_valorem,imp.valor, rg.v_imp_adicional,rg.iva,imp.valor, rg.valor_bruto
 FROM registro_producto AS rg INNER JOIN tipo_producto AS tp ON(tp.id=rg.id_Tproducto_FK)
 INNER JOIN impuesto as imp ON(imp.id=rg.id_impto_adicionalFK) WHERE rg.estado = 1
 ORDER BY (rg.id) DESC")->fetchAll(PDO::FETCH_OBJ);
 ?>
+<script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous">
+</script>
+
+<link rel="stylesheet" href="librerias/sweetAlert/package/dist/sweetalert2.min.css" type="text/css">
 &nbsp;
 &nbsp;
 <div class="container">
@@ -36,25 +43,20 @@ ORDER BY (rg.id) DESC")->fetchAll(PDO::FETCH_OBJ);
                     <td><?php echo $listado->valor_flete ?></td>
                     <td><?php echo $listado->valor_seguro ?></td>
                     <td><?php echo $listado->ad_valorem ?></td>
-                    <td></td>
+                    <td><?php echo $listado->v_imp_adicional ?></td>
                     <td><?php echo $listado->iva ?></td>
                     <td><?php echo $listado->valor_bruto ?></td>
                     <td>
                         <a href="edit.php?id=<?php echo $listado->id ?>">
                             <i class="material-icons blue-text">edit</i></a>
 
-                            <a href="delete.php?id=<?php echo $listado->id ?>" id="eliminar"><i
-                                        class="material-icons red-text">delete</i></a></td>
+                        <a href="delete.php?id=<?php echo $listado->id ?>" id="eliminar"><i
+                                    class="material-icons red-text">delete</i></a></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
+            <script type="text/javascript" src="librerias/sweetAlert/package/dist/sweetalert2.all.min.js"></script>
+            <script type="text/javascript" src="js/app.js"></script>
         </table>
     </div>
 </div>
-
-<script
-        src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-        crossorigin="anonymous"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script type="text/javascript" src="js/app.js"></script>

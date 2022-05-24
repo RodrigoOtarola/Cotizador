@@ -10,7 +10,7 @@ $Impto_adicional = $base->query("SELECT * FROM impuesto WHERE id IN (1,2,3,4)")-
 
 $id = $_GET['id'];
 
-$select = $base->query("SELECT rg.id, rg.nombre, tp.Tipo_producto, rg.precio_origen, rg.valor_flete, rg.valor_seguro, rg.ad_valorem,imp.valor, rg.iva,imp.valor, rg.valor_bruto, rg.observaciones
+$select = $base->query("SELECT rg.id, rg.nombre, tp.Tipo_producto, rg.precio_origen, rg.valor_flete, rg.valor_seguro, rg.ad_valorem,imp.valor, rg.v_imp_adicional,rg.iva,imp.valor, rg.valor_bruto, rg.observaciones
 FROM registro_producto AS rg INNER JOIN tipo_producto AS tp ON(tp.id=rg.id_Tproducto_FK)
 INNER JOIN impuesto as imp ON(imp.id=rg.id_impto_adicionalFK) WHERE rg.estado = 1 AND rg.id = '$id'")->fetchAll(PDO::FETCH_OBJ);
 
@@ -37,23 +37,23 @@ INNER JOIN impuesto as imp ON(imp.id=rg.id_impto_adicionalFK) WHERE rg.estado = 
                 <label>Tipo de Producto:</label>
             </div>
             <?php foreach ($select as $listado): ?>
-                <div class="input-field col s12 m3 l3">
+                <div class="input-field col s12 m4 l4">
                     <input type="number" id="p_origen" name="p_origen" class="validate"
                            value="<?php echo $listado->precio_origen ?>" required>
                     <label for="p_origen">Precio origen:</label>
                 </div>
-                <div class="input-field col s12 m3 l3">
+                <div class="input-field col s12 m4 l4">
                     <input type="number" id="v_flete" name="v_flete" class="validate"
                            value="<?php echo $listado->valor_flete ?>" required>
                     <label for="v_flete">Valor flete:</label>
                 </div>
-                <div class="input-field col s12 m3 l3">
+                <div class="input-field col s12 m4 l4">
                     <input type="number" id="v_seguro" name="v_seguro" class="validate"
                            value="<?php echo $listado->valor_seguro ?>" required>
                     <label for="v_seguro">Valor seguro:</label>
                 </div>
             <?php endforeach; ?>
-            <div class="input-field col s12 m3 l3">
+            <div class="input-field col s12 m4 l4">
                 <select name="impto_adicional" id="impto_adicional" required>
                     <option value="">Seleccione</option>
                     <?php foreach ($Impto_adicional as $impto_adicional): ?>
@@ -62,11 +62,25 @@ INNER JOIN impuesto as imp ON(imp.id=rg.id_impto_adicionalFK) WHERE rg.estado = 
                 </select>
                 <label>Impuesto Adicional:</label>
             </div>
-            <div class="input-field col s12 m12">
+            <?php foreach ($select as $listado): ?>
+            <div class="input-field col s12 m4 l4">
+                <input type="number" id="v_iadicional" name="v_iadicional" class="validate" value="<?php echo $listado->v_imp_adicional ?>"required>
+                <label for="v_iadicional">Valor impuesto adicional:</label>
+            </div>
+            <div class="input-field col s12 m4 l4">
+                <input type="number" id="iva" name="iva" class="validate" value="<?php echo $listado->iva ?>" required>
+                <label for="iva">I.V.A.:</label>
+            </div>
+            <div class="input-field col s12 m4 l4">
+                <input type="number" id="v_total" name="v_total" class="validate" value="<?php echo $listado->valor_bruto ?>"required>
+                <label for="v_total">Valor total:</label>
+            </div>
+            <div class="input-field col s12 m12 l12">
                 <textarea id="textarea" name="observaciones"
                           class="materialize-textarea"><?php echo $listado->observaciones ?></textarea>
                 <label for="textarea">Observaciones:</label>
             </div>
+            <?php endforeach; ?>
             <div class="col s12">
                 <button type="submit" class="btn red" name="create">Actualizar</button>
             </div>
