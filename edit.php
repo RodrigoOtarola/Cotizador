@@ -16,6 +16,7 @@ INNER JOIN impuesto as imp ON(imp.id=rg.id_impto_adicionalFK) WHERE rg.estado = 
 
 
 ?>
+
 <form action="update.php" method="POST" autocomplete="off">
     <div class="container section">
         <div class="row card-panel">
@@ -37,20 +38,24 @@ INNER JOIN impuesto as imp ON(imp.id=rg.id_impto_adicionalFK) WHERE rg.estado = 
                 <label>Tipo de Producto:</label>
             </div>
             <?php foreach ($select as $listado): ?>
-                <div class="input-field col s12 m4 l4">
+                <div class="input-field col s12 m3 l3">
                     <input type="number" id="p_origen" name="p_origen" class="validate"
                            value="<?php echo $listado->precio_origen ?>" required>
                     <label for="p_origen">Precio origen:</label>
                 </div>
-                <div class="input-field col s12 m4 l4">
+                <div class="input-field col s12 m3 l3">
                     <input type="number" id="v_flete" name="v_flete" class="validate"
                            value="<?php echo $listado->valor_flete ?>" required>
                     <label for="v_flete">Valor flete:</label>
                 </div>
-                <div class="input-field col s12 m4 l4">
+                <div class="input-field col s12 m3 l3">
                     <input type="number" id="v_seguro" name="v_seguro" class="validate"
                            value="<?php echo $listado->valor_seguro ?>" required>
                     <label for="v_seguro">Valor seguro:</label>
+                </div>
+                <div class="input-field col s12 m3 l3">
+                    <input type="number" id="v_advalorem" name="v_advalorem" class="validate" value="<?php echo $listado->ad_valorem?>"required>
+                    <label for="v_advalorem">Ad valorem:</label>
                 </div>
             <?php endforeach; ?>
             <div class="input-field col s12 m4 l4">
@@ -82,7 +87,9 @@ INNER JOIN impuesto as imp ON(imp.id=rg.id_impto_adicionalFK) WHERE rg.estado = 
             </div>
             <?php endforeach; ?>
             <div class="col s12">
-                <button type="submit" class="btn red" name="create">Actualizar</button>
+                <button type="submit" class="btn red" name="update" onclick="edit()">Actualizar</button>
             </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <script type="text/javascript" src="js/app.js"></script>
         </div>
 </form>

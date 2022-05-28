@@ -15,12 +15,12 @@ $v_total = $_POST['v_total'];
 $obs = $_POST['observaciones'];
 
 $update ="UPDATE registro_producto SET nombre=:nom, id_Tproducto_FK=:t_prod, precio_origen=:p_origen, valor_flete=:v_flete, 
-                             valor_seguro=:v_seguro, id_impto_adicionalFK=:i_adicional, v_imp_adicional=:v_iadicional, iva=:iva, 
+                             valor_seguro=:v_seguro,ad_valorem=:ad_valorem, id_impto_adicionalFK=:i_adicional, v_imp_adicional=:v_iadicional, iva=:iva, 
                              valor_bruto=:v_bruto,observaciones=:obs WHERE id = '$id'";
 
 $resultado = $base->prepare($update);
 
 $resultado->execute(array(":nom" => $nombre, ":t_prod" => $t_producto, ":p_origen" => $p_origen, ":v_flete" => $v_flete,
-    ":v_seguro" => $v_seguro, ":i_adicional" => $i_adicional, ":v_iadicional"=>$v_iAdicional,":iva"=>$iva,":v_bruto"=>$v_total,":obs" => $obs));
+    ":v_seguro" => $v_seguro, ":ad_valorem"=>$v_advalorem,":i_adicional" => $i_adicional, ":v_iadicional"=>$v_iAdicional,":iva"=>$iva,":v_bruto"=>$v_total,":obs" => $obs));
 
 header("Location:index.php");

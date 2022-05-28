@@ -49,7 +49,7 @@ $Impto_adicional=$base->query("SELECT * FROM impuesto WHERE id IN (1,2,3,4)")->f
                 <label>Impuesto Adicional:</label>
             </div>
             <div class="input-field col s12 m4 l4">
-                <input type="number" id="v_iadicional" name="v_iadicional" class="validate" required>
+                <input type="number" id="v_iadicional" name="v_iadicional" value="">
                 <label for="v_iadicional">Valor impuesto adicional:</label>
             </div>
             <div class="input-field col s12 m4 l4">
@@ -65,7 +65,9 @@ $Impto_adicional=$base->query("SELECT * FROM impuesto WHERE id IN (1,2,3,4)")->f
                 <label for="textarea">Observaciones:</label>
             </div>
             <div class="col s12">
-                <button type="submit" class="btn red" name="create">Enviar</button>
+                <button type="submit" class="btn red" name="create" onclick="crear()" ">Enviar</button>
             </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <script type="text/javascript" src="js/app.js"></script>
         </div>
 </form>

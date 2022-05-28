@@ -14,8 +14,7 @@ ORDER BY (rg.id) DESC")->fetchAll(PDO::FETCH_OBJ);
         crossorigin="anonymous">
 </script>
 
-<link rel="stylesheet" href="librerias/sweetAlert/package/dist/sweetalert2.min.css" type="text/css">
-&nbsp;
+<link rel="stylesheet" href="librerias/sweetAlert/package/dist/sweetalert2.min.css" type="text/css">&nbsp;
 &nbsp;
 <div class="container">
     <div class="card-pannel grey lighten-5">
@@ -50,12 +49,14 @@ ORDER BY (rg.id) DESC")->fetchAll(PDO::FETCH_OBJ);
                         <a href="edit.php?id=<?php echo $listado->id ?>">
                             <i class="material-icons blue-text">edit</i></a>
 
-                        <a href="delete.php?id=<?php echo $listado->id ?>" id="eliminar"><i
-                                    class="material-icons red-text">delete</i></a></td>
+                        <a href="delete.php?id=<?php echo $listado->id ?>" id="eliminar" data-id="<?php echo $listado->id ?>" onclick="return eliminar()">
+                            <i class="material-icons red-text">delete</></a></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
-            <script type="text/javascript" src="librerias/sweetAlert/package/dist/sweetalert2.all.min.js"></script>
+<!--            <script type="text/javascript" src="librerias/sweetAlert/package/dist/sweetalert2.all.min.js"></script>-->
+            <!-- Compiled and minified JavaScript -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
             <script type="text/javascript" src="js/app.js"></script>
         </table>
     </div>

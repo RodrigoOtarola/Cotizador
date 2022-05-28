@@ -56,7 +56,7 @@
     <!--<li><a href="#" class="dropdown-trigger" data-target="id_drop">Desplegable<i
                     class="material-icons right">arrow_drop_down</i></a>
     </li>-->
-    <li><a href="index.php">Cerrar menú<i class="material-icons right">close</i></a></li>
+    <li><a href="index.php">Cerrar<i class="material-icons right">close</i></a></li>
 </ul>
 <!--JavaScript at end of body for optimized loading-->
 <script type="text/javascript" src="js/materialize.min.js"></script>
