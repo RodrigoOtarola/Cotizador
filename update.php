@@ -16,7 +16,7 @@ $v_total = $_POST['v_total'];
 $obs = $_POST['observaciones'];
 
 $update ="UPDATE registro_producto SET nombre=:nom, id_Tproducto_FK=:t_prod, precio_origen=:p_origen, valor_flete=:v_flete, 
-                             valor_seguro=:v_seguro,ad_valorem=:ad_valorem, valor_cif=:v_cif,id_impto_adicionalFK=:i_adicional, v_imp_adicional=:v_iadicional, iva=:iva, 
+                             valor_seguro=:v_seguro,ad_valorem=:ad_valorem, valor_cif=:v_cif,impto_adicional=:i_adicional, v_imp_adicional=:v_iadicional, iva=:iva, 
                              valor_bruto=:v_bruto,observaciones=:obs WHERE id = '$id'";
 
 $resultado = $base->prepare($update);

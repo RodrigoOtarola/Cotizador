@@ -3,9 +3,8 @@
 
 include('conexion.php');
 
-$registros = $base->query("SELECT rg.id, rg.nombre, tp.Tipo_producto, rg.precio_origen, rg.valor_flete, rg.valor_seguro, rg.ad_valorem,imp.valor, rg.v_imp_adicional,rg.iva,imp.valor, rg.valor_bruto
-FROM registro_producto AS rg INNER JOIN tipo_producto AS tp ON(tp.id=rg.id_Tproducto_FK)
-INNER JOIN impuesto as imp ON(imp.id=rg.id_impto_adicionalFK) WHERE rg.estado = 1
+$registros = $base->query("SELECT rg.id, rg.nombre, tp.Tipo_producto, rg.precio_origen, rg.valor_flete, rg.valor_seguro, rg.ad_valorem, rg.v_imp_adicional,rg.iva, rg.valor_bruto
+FROM registro_producto AS rg INNER JOIN tipo_producto AS tp ON(tp.id=rg.id_Tproducto_FK) WHERE rg.estado = 1
 ORDER BY (rg.id) DESC")->fetchAll(PDO::FETCH_OBJ);
 ?>
 <script

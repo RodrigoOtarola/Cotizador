@@ -16,7 +16,7 @@ if (isset($_POST['create'])) {
     $v_total = $_POST['v_total'];
     $obs = $_POST['observaciones'];
 
-    $insert = "INSERT INTO registro_producto(id, nombre,id_Tproducto_FK,precio_origen,valor_flete,valor_seguro,ad_Valorem,valor_cif,id_impto_adicionalFK,v_imp_adicional,
+    $insert = "INSERT INTO registro_producto(id, nombre,id_Tproducto_FK,precio_origen,valor_flete,valor_seguro,ad_Valorem,valor_cif,impto_adicional,v_imp_adicional,
                               iva,valor_bruto,observaciones)
 VALUES(0,:nom,:t_prod,:p_origen,:v_flete,:v_seguro,:ad_valorem,:v_cif,:i_adicional,:v_iadicional,:iva,:v_bruto,:obs)";
 

@@ -47,7 +47,7 @@ $Impto_adicional = $base->query("SELECT * FROM impuesto WHERE id IN (1,2,3,4)")-
                     <option value="">Seleccione</option>
                     <?php foreach ($Impto_adicional as $impto_adicional): ?>
                         <option id="i_adicional"
-                                value="<?php echo $impto_adicional->id ?>"><?php echo $impto_adicional->impto ?></option>
+                                value="<?php echo $impto_adicional->valor ?>"><?php echo $impto_adicional->impto ?></option>
                     <?php endforeach; ?>
                 </select>
                 <label>Impuesto Adicional:</label>

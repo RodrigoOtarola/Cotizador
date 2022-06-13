@@ -76,8 +76,8 @@ function calcular(){
     //Impuesto adicional
     var i_adicional = eval(document.getElementById('impto_adicional').value);
     alert(i_adicional);
-    // impto_adic = (v_cif * i_adicional)/100;
-    // document.getElementById('v_iadicional').value = i_adicional;
+    impto_adic = Math.round((v_cif * i_adicional)/100);
+    document.getElementById('v_iadicional').value = impto_adic;
 
     //Valor neto
     v_neto =  v_cif + i_adicional;

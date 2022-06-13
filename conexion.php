@@ -1,6 +1,6 @@
 <?php
 try {
-    $base = new PDO("mysql:host=localhost;dbname=cotizador;port=3307",'root', '');
+    $base = new PDO("mysql:host=localhost;dbname=cotizador2;port=3307",'root', '');
 
     $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
