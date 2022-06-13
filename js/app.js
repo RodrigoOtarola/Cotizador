@@ -55,3 +55,40 @@ function edit() {
     });
 }
 
+
+function calcular(){
+    //Accedimos a valores
+    var p_origen = eval(document.getElementById('p_origen').value);
+    var flete = eval(document.getElementById('v_flete').value);
+    var seguro = eval(document.getElementById('v_seguro').value);
+
+    //Suma de precio origen, flete y seguro.
+    preValor = (p_origen + flete + seguro);
+
+    //Advalorem
+    Advalorem  = (preValor * 0.06);
+    document.getElementById('v_advalorem').value = Advalorem;
+
+    //Valor cif
+    v_cif = (preValor + Advalorem)
+    document.getElementById('v_cif').value = v_cif;
+
+    //Impuesto adicional
+    var i_adicional = eval(document.getElementById('v_iadicional').value);
+    // impto_adic = (v_cif * i_adicional)/100;
+    // document.getElementById('v_iadicional').value = i_adicional;
+
+    //Valor neto
+    v_neto =  v_cif + i_adicional;
+
+    //iva
+    const iva = 0.19;
+    calcIva = v_neto * iva;
+    document.getElementById('iva').value = calcIva;
+
+    //Sumar total
+    total = calcIva + v_neto;
+    document.getElementById('v_total').value = total;
+
+}
+

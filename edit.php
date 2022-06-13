@@ -38,25 +38,27 @@ INNER JOIN impuesto as imp ON(imp.id=rg.id_impto_adicionalFK) WHERE rg.estado = 
                 <label>Tipo de Producto:</label>
             </div>
             <?php foreach ($select as $listado): ?>
-                <div class="input-field col s12 m3 l3">
+                <div class="input-field col s12 m4 l4">
                     <input type="number" id="p_origen" name="p_origen" class="validate"
                            value="<?php echo $listado->precio_origen ?>" required>
                     <label for="p_origen">Precio origen:</label>
                 </div>
-                <div class="input-field col s12 m3 l3">
+                <div class="input-field col s12 m4 l4">
                     <input type="number" id="v_flete" name="v_flete" class="validate"
                            value="<?php echo $listado->valor_flete ?>" required>
                     <label for="v_flete">Valor flete:</label>
                 </div>
-                <div class="input-field col s12 m3 l3">
+                <div class="input-field col col s12 m4 l4">
                     <input type="number" id="v_seguro" name="v_seguro" class="validate"
                            value="<?php echo $listado->valor_seguro ?>" required>
                     <label for="v_seguro">Valor seguro:</label>
                 </div>
-                <div class="input-field col s12 m3 l3">
-                    <input type="number" id="v_advalorem" name="v_advalorem" class="validate" value="<?php echo $listado->ad_valorem?>"required>
-                    <label for="v_advalorem">Ad valorem:</label>
-                </div>
+                <!--            Valor Advalorem    -->
+                <input type="hidden" id="v_advalorem" name="v_advalorem" class="validate">
+
+                <!--            Valor CIF-->
+                <input type="hidden" id="v_cif" name="v_cif" class="validate">
+
             <?php endforeach; ?>
             <div class="input-field col s12 m4 l4">
                 <select name="impto_adicional" id="impto_adicional" required>
@@ -68,26 +70,26 @@ INNER JOIN impuesto as imp ON(imp.id=rg.id_impto_adicionalFK) WHERE rg.estado = 
                 <label>Impuesto Adicional:</label>
             </div>
             <?php foreach ($select as $listado): ?>
-            <div class="input-field col s12 m4 l4">
-                <input type="number" id="v_iadicional" name="v_iadicional" class="validate" value="<?php echo $listado->v_imp_adicional ?>"required>
-                <label for="v_iadicional">Valor impuesto adicional:</label>
-            </div>
-            <div class="input-field col s12 m4 l4">
-                <input type="number" id="iva" name="iva" class="validate" value="<?php echo $listado->iva ?>" required>
-                <label for="iva">I.V.A.:</label>
-            </div>
-            <div class="input-field col s12 m4 l4">
-                <input type="number" id="v_total" name="v_total" class="validate" value="<?php echo $listado->valor_bruto ?>"required>
-                <label for="v_total">Valor total:</label>
-            </div>
-            <div class="input-field col s12 m12 l12">
+                <div class="input-field col s12 m4 l4">
+                    <input type="number" id="v_iadicional" name="v_iadicional" class="validate"
+                           value="<?php echo $listado->v_imp_adicional ?>" required>
+                    <label for="v_iadicional">Valor impuesto adicional:</label>
+                </div>
+
+                <!--            IVA-->
+                <input type="hidden" id="iva" name="iva" class="validate">
+
+                <!--            Valor total-->
+                <input type="hidden" id="v_total" name="v_total" class="validate">
+
+                <div class="input-field col s12 m12 l12">
                 <textarea id="textarea" name="observaciones"
                           class="materialize-textarea"><?php echo $listado->observaciones ?></textarea>
-                <label for="textarea">Observaciones:</label>
-            </div>
+                    <label for="textarea">Observaciones:</label>
+                </div>
             <?php endforeach; ?>
             <div class="col s12">
-                <button type="submit" class="btn red" name="update" onclick="edit()">Actualizar</button>
+                <button type="submit" class="btn red" name="update" onclick="edit(),calcular()">Actualizar</button>
             </div>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
             <script type="text/javascript" src="js/app.js"></script>
