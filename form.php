@@ -24,15 +24,15 @@ $Impto_adicional = $base->query("SELECT * FROM impuesto WHERE id IN (1,2,3,4)")-
                 </select>
                 <label>Tipo de Producto:</label>
             </div>
-            <div class="input-field col s12 m4 l4">
+            <div class="input-field col s12 m3 l3">
                 <input type="number" id="p_origen" name="p_origen" class="validate" required>
                 <label for="p_origen">Precio origen:</label>
             </div>
-            <div class="input-field col s12 m4 l4">
+            <div class="input-field col s12 m3 l3">
                 <input type="number" id="v_flete" name="v_flete" class="validate" required>
                 <label for="v_flete">Valor flete:</label>
             </div>
-            <div class="input-field col s12 m4 l4">
+            <div class="input-field col s12 m3 l3">
                 <input type="number" id="v_seguro" name="v_seguro" class="validate" required>
                 <label for="v_seguro">Valor seguro:</label>
             </div>
@@ -42,7 +42,7 @@ $Impto_adicional = $base->query("SELECT * FROM impuesto WHERE id IN (1,2,3,4)")-
             <!--            Valor CIF-->
             <input type="hidden" id="v_cif" name="v_cif" class="validate">
 
-            <div class="input-field col s12 m4 l4">
+            <div class="input-field col s12 m3 l3">
                 <select name="impto_adicional" id="impto_adicional" required>
                     <option value="">Seleccione</option>
                     <?php foreach ($Impto_adicional as $impto_adicional): ?>
@@ -52,10 +52,9 @@ $Impto_adicional = $base->query("SELECT * FROM impuesto WHERE id IN (1,2,3,4)")-
                 </select>
                 <label>Impuesto Adicional:</label>
             </div>
-            <div class="input-field col s12 m4 l4">
-                <input type="number" id="v_iadicional" name="v_iadicional" value="">
-                <label for="v_iadicional">Valor impuesto adicional:</label>
-            </div>
+            <!--            valor impuesto adicional-->
+            <input type="hidden" id="v_iadicional" name="v_iadicional">
+
             <!--            IVA-->
             <input type="hidden" id="iva" name="iva" class="validate">
 
