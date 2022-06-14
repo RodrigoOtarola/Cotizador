@@ -10,9 +10,9 @@ $Impto_adicional = $base->query("SELECT * FROM impuesto WHERE id IN (1,2,3,4)")-
 
 $id = $_GET['id'];
 
-$select = $base->query("SELECT rg.id, rg.nombre, tp.Tipo_producto, rg.precio_origen, rg.valor_flete, rg.valor_seguro, rg.ad_valorem,imp.valor, rg.v_imp_adicional,rg.iva,imp.valor, rg.valor_bruto, rg.observaciones
+$select = $base->query("SELECT rg.id, rg.nombre, tp.Tipo_producto, rg.precio_origen, rg.valor_flete, rg.valor_seguro, rg.ad_valorem, rg.v_imp_adicional,rg.iva, rg.valor_bruto, rg.observaciones
 FROM registro_producto AS rg INNER JOIN tipo_producto AS tp ON(tp.id=rg.id_Tproducto_FK)
-INNER JOIN impuesto as imp ON(imp.id=rg.id_impto_adicionalFK) WHERE rg.estado = 1 AND rg.id = '$id'")->fetchAll(PDO::FETCH_OBJ);
+ WHERE rg.estado = 1 AND rg.id = '$id'")->fetchAll(PDO::FETCH_OBJ);
 
 
 ?>
@@ -38,17 +38,17 @@ INNER JOIN impuesto as imp ON(imp.id=rg.id_impto_adicionalFK) WHERE rg.estado = 
                 <label>Tipo de Producto:</label>
             </div>
             <?php foreach ($select as $listado): ?>
-                <div class="input-field col s12 m4 l4">
+                <div class="input-field col s12 m3 l3">
                     <input type="number" id="p_origen" name="p_origen" class="validate"
                            value="<?php echo $listado->precio_origen ?>" required>
                     <label for="p_origen">Precio origen:</label>
                 </div>
-                <div class="input-field col s12 m4 l4">
+                <div class="input-field col s12 m3 l3">
                     <input type="number" id="v_flete" name="v_flete" class="validate"
                            value="<?php echo $listado->valor_flete ?>" required>
                     <label for="v_flete">Valor flete:</label>
                 </div>
-                <div class="input-field col col s12 m4 l4">
+                <div class="input-field col s12 m3 l3">
                     <input type="number" id="v_seguro" name="v_seguro" class="validate"
                            value="<?php echo $listado->valor_seguro ?>" required>
                     <label for="v_seguro">Valor seguro:</label>
@@ -59,22 +59,17 @@ INNER JOIN impuesto as imp ON(imp.id=rg.id_impto_adicionalFK) WHERE rg.estado = 
                 <!--            Valor CIF-->
                 <input type="hidden" id="v_cif" name="v_cif" class="validate">
 
-            <?php endforeach; ?>
-            <div class="input-field col s12 m4 l4">
-                <select name="impto_adicional" id="impto_adicional" required>
-                    <option value="">Seleccione</option>
-                    <?php foreach ($Impto_adicional as $impto_adicional): ?>
-                        <option value="<?php echo $impto_adicional->id ?>"><?php echo $impto_adicional->impto ?></option>
-                    <?php endforeach; ?>
-                </select>
-                <label>Impuesto Adicional:</label>
-            </div>
-            <?php foreach ($select as $listado): ?>
-                <div class="input-field col s12 m4 l4">
-                    <input type="number" id="v_iadicional" name="v_iadicional" class="validate"
-                           value="<?php echo $listado->v_imp_adicional ?>" required>
-                    <label for="v_iadicional">Valor impuesto adicional:</label>
+                <div class="input-field col s12 m3 l3">
+                    <select name="impto_adicional" id="impto_adicional" required>
+                        <option value="">Seleccione</option>
+                        <?php foreach ($Impto_adicional as $impto_adicional): ?>
+                            <option id="i_adicional" value="<?php echo $impto_adicional->valor ?>"><?php echo $impto_adicional->impto ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <label>Impuesto Adicional:</label>
                 </div>
+                <!--            valor impuesto adicional-->
+                <input type="hidden" id="v_iadicional" name="v_iadicional">
 
                 <!--            IVA-->
                 <input type="hidden" id="iva" name="iva" class="validate">

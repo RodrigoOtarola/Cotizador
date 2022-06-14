@@ -80,12 +80,14 @@ function calcular(){
     document.getElementById('v_iadicional').value = impto_adic;
 
     //Valor neto
-    v_neto =  v_cif + i_adicional;
+    v_neto =  v_cif + impto_adic;
+    console.log(v_neto);
 
     //iva
     const iva = 0.19;
     calcIva = v_neto * iva;
     document.getElementById('iva').value = calcIva;
+    console.log(calcIva);
 
     //Sumar total
     total = calcIva + v_neto;
