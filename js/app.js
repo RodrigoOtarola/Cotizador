@@ -75,19 +75,19 @@ function calcular(){
 
     //Impuesto adicional
     var i_adicional = eval(document.getElementById('impto_adicional').value);
-    alert(i_adicional);
+    // alert(i_adicional);
     impto_adic = Math.round((v_cif * i_adicional)/100);
     document.getElementById('v_iadicional').value = impto_adic;
 
     //Valor neto
     v_neto =  v_cif + impto_adic;
-    console.log(v_neto);
+    // console.log(v_neto);
 
     //iva
     const iva = 0.19;
     calcIva = v_neto * iva;
     document.getElementById('iva').value = calcIva;
-    console.log(calcIva);
+    // console.log(calcIva);
 
     //Sumar total
     total = calcIva + v_neto;
